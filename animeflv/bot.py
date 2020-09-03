@@ -131,6 +131,10 @@ def query(message: telebot.types.Message):
     items = search_anime(message.text, find_details=False)
     titles = "\n".join(f"🔹 {item}\n      /anime_{add_mapping(url)}" for item, (url, _) in items.items())
 
+    if not titles:
+        bot.reply_to(message, "❌ Query not found. Try again.")
+        return
+
     bot.send_message(
         message.chat.id,
         f"""Here is a list of matching titles. Click the corresponding link to see the description and chapters.
