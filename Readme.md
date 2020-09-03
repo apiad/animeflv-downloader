@@ -1,6 +1,9 @@
 # AnimeFLV.net downloader
 
+> Check the bot at https://t.me/animeflv_download_bot
+
 This script is very simple, it will attempt to download video files from <animeflv.net>.
+It also works as Telegram Bot!
 
 ### Install
 
@@ -12,7 +15,15 @@ Just run:
 
 Pass the title of an anime series as it appears in the <animeflv.net> URL. For example, for <https://www3.animeflv.net/anime/shingeki-no-kyojin> the title is `shingeki-no-kyojin`, and optionally the initial and final episode:
 
-    python download.py shingeki-no-kyojin 1 25
+    python -m animeflv download shingeki-no-kyojin 1 25 [--output_path <path>]
+
+If you don't know the exact URL, try `search`:
+
+    python -m animeflv search shingeki
+
+If you want to run the Telegram bot (you should know what you're doing):
+
+    python -m animeflv.bot <TOKEN>
 
 ## How does it work?
 
