@@ -9,6 +9,7 @@ from selenium.webdriver import Firefox, FirefoxOptions
 
 
 def search_anime(query: str, find_details:bool = True):
+    print(f"Searching query: {query}")
     url = f"https://www3.animeflv.net/browse?q={query}"
     html = requests.get(url).text
     soup = bs4.BeautifulSoup(html, features="html.parser")

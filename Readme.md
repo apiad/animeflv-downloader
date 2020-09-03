@@ -21,6 +21,8 @@ If you don't know the exact URL, try `search`:
 
     python -m animeflv search shingeki
 
+### Telegram Bot
+
 If you want to run the Telegram bot (you should know what you're doing):
 
     python -m animeflv.bot <TOKEN>
@@ -28,6 +30,12 @@ If you want to run the Telegram bot (you should know what you're doing):
 The bot requires `MP4Box` installed, in Debian-based distributions (Ubuntu) this app is the `gpac` package:
 
     apt install gpac
+
+### Docker
+
+If you prefer docker, running the bot it is even easier:
+
+    TOKEN=<your-token> docker-compose up
 
 ## How does it work?
 

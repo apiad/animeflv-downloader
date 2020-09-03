@@ -1,0 +1,8 @@
+version: "3"
+
+services: 
+    animeflv:
+        build: "."
+        volumes: 
+            - ".:/src"
+        command: ["python3", "-m", "animeflv.bot", "${TOKEN}"]
