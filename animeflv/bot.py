@@ -56,12 +56,13 @@ def anime_info(message: telebot.types.Message):
     bot.send_message(
         message.chat.id,
         f"""Here is the list of all chapters. 
-Click any link to start downloading that file. 
+Click any 🎥`/video_*` link for streamable video files.
+Click any 📁`/zip_*` link for zipped video files.
 The file will be split in 50 MBs parts as per Telegram's restrictions.
-        """,
+        """, parse_mode="Markdown"
     )
 
-    chapters = "\n".join(f"🔸 {i+1}: /video_{string}_{i+1}" for i in range(total_chapters))
+    chapters = "\n".join(f"{i+1:-02}: 🎥 /video_{string}_{i+1}\n      📁 /zip_{string}_{i+1}" for i in range(total_chapters))
     bot.send_message(message.chat.id, chapters)
 
 
@@ -78,6 +79,8 @@ def download_video(message: telebot.types.Message):
     url = bot.mappings[string]
     path = download_one(url, chapter, ".")
 
+    bot.send_message(message.chat.id, f"🔪 Splitting video")
+
     os.system(f"MP4Box -splits 50000 {path}")
     parts = list(sorted(Path(".").glob(str(path.stem) + "_*.mp4")))
 
@@ -86,7 +89,37 @@ def download_video(message: telebot.types.Message):
     for fname in parts:
         with fname.open("rb") as fp:
             bot.send_chat_action(message.chat.id, "upload_video")
-            bot.send_document(message.chat.id, fp)
+            bot.send_video(message.chat.id, fp, caption=str(fname), supports_streaming=True)
+            fname.unlink()
+
+    path.unlink()
+    bot.send_message(message.chat.id, "👌 Done!")
+
+
+@bot.message_handler(regexp=r"/zip_[a-zA-Z]+_\d+")
+def download_video(message: telebot.types.Message):
+    string, chapter = message.text[len("/zip_"):].split("_")
+
+    if string not in bot.mappings:
+        bot.reply_to(message, "❌ Unknown ID. Try searching again.")
+        return
+
+    bot.send_message(message.chat.id, "🔽 Downloading video file from AnimeFLV.net")
+
+    url = bot.mappings[string]
+    path = download_one(url, chapter, ".")
+
+    bot.send_message(message.chat.id, f"🗜 Compressing video")
+
+    os.system(f"zip -s 50m {path.stem}.zip {path}")
+    parts = list(sorted(Path(".").glob(str(path.stem) + ".z*")))
+
+    bot.send_message(message.chat.id, f"🔼 Uploading {len(parts)} zip parts(s) to Telegram")
+
+    for fname in parts:
+        with fname.open("rb") as fp:
+            bot.send_chat_action(message.chat.id, "upload_document")
+            bot.send_document(message.chat.id, fp, caption=str(fname))
             fname.unlink()
 
     path.unlink()
