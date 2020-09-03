@@ -81,7 +81,7 @@ def download_video(message: telebot.types.Message):
 
     bot.send_message(message.chat.id, f"🔪 Splitting video")
 
-    os.system(f"MP4Box -splits 50000 {path}")
+    os.system(f"MP4Box -splits 45000 {path}")
     parts = list(sorted(Path(".").glob(str(path.stem) + "_*.mp4")))
 
     bot.send_message(message.chat.id, f"🔼 Uploading {len(parts)} video file(s) to Telegram")
@@ -111,7 +111,7 @@ def download_video(message: telebot.types.Message):
 
     bot.send_message(message.chat.id, f"🗜 Compressing video")
 
-    os.system(f"zip -s 50m {path.stem}.zip {path}")
+    os.system(f"zip -s 45m {path.stem}.zip {path}")
     parts = list(sorted(Path(".").glob(str(path.stem) + ".z*")))
 
     bot.send_message(message.chat.id, f"🔼 Uploading {len(parts)} zip parts(s) to Telegram")
