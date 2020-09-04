@@ -53,9 +53,10 @@ If you want to run the Telegram bot (you should know what you're doing):
 
     python -m animeflv.bot <TOKEN>
 
-The bot requires `MP4Box` installed, in Debian-based distributions (Ubuntu) this app is the `gpac` package:
+The bot requires `MP4Box` installed, in Debian-based distributions (Ubuntu) this app is the `gpac` package.
+Also, `zip` is required.
 
-    apt install gpac
+    apt install -y gpac zip
 
 ### Docker
 
