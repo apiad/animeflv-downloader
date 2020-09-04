@@ -2,8 +2,14 @@
 
 > Check the bot at https://t.me/animeflv_download_bot
 
-This script is very simple, it will attempt to download video files from <animeflv.net>.
+This script is very simple, it will attempt to download video files from <AnimeFLV.net>.
 It also works as Telegram Bot!
+
+> **DISCLAIMER:** This project is for personal and legitimate use ONLY. It is not designed for commercial use. 
+> I do not endorse blatanly downloading copyrighted material from anywhere in the Internet.
+> That being said, if you are from a Third World country where this content is simply not available, you only have intermiten Internet connection, and the content is only for personal consumption, that can be considered that a legitimate use.
+>
+> Please support <AnimeFLV.net> in any way you can. Specially, do visit the website and what the chapters through streaming if you can afford it. They make an awesome job and they deserve your support.
 
 ### Install
 
@@ -19,7 +25,27 @@ Pass the title of an anime series as it appears in the <animeflv.net> URL. For e
 
 If you don't know the exact URL, try `search`:
 
-    python -m animeflv search shingeki
+    python -m animeflv search "shingeki no kyojin"
+
+It will print something like:
+
+    Shingeki no Kyojin: Kuinaki Sentaku [2 chapters] ( shingeki-no-kyojin-kuinaki-sentaku )
+    Shingeki no Kyojin Season 2 [12 chapters] ( shingeki-no-kyojin-season-2 )
+    Shingeki no Kyojin OVA [3 chapters] ( shingeki-no-kyojin-ova )
+    Shingeki no Kyojin Season 3 [12 chapters] ( shingeki-no-kyojin-season-3 )
+    Shingeki no Kyojin Live Action [1 chapters] ( shingeki-no-kyojin-live-action )
+    Shingeki no Kyojin Movie 1: Guren no Yumiya [1 chapters] ( shingeki-no-kyojin-movie-1-guren-no-yumiya )
+    Shingeki no Kyojin Movie 2: Jiyuu no Tsubasa [1 chapters] ( shingeki-no-kyojin-movie-2-jiyuu-no-tsubasa )
+    Shingeki no Kyojin [25 chapters] ( shingeki-no-kyojin )
+    Shingeki no Kyojin: Chimi Kyara Gekijou - Tondeke! Kunren Heidan [9 chapters] ( shingeki-no-kyojin-chimi-kyara-gekijou-tondeke )
+    Shingeki no Kyojin Season 3 Part 2 [10 chapters] ( shingeki-no-kyojin-season-3-part-2 )
+    Shingeki no Kyojin: Lost Girls [3 chapters] ( shingeki-no-kyojin-lost-girls )
+
+After seeing the search results, if you want to simply download **all chapters** from **all the listed anime**, just type:
+
+    python -m animeflv search <query> --download_all
+
+> WARNING: This option can download A LOT of episodes sometimes. Use with care.
 
 ### Telegram Bot
 

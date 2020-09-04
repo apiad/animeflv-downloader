@@ -43,6 +43,7 @@ def find_details(anime_id:str):
 
 
 def download_one(title: str, chapter: int, output_path: str, return_url:bool=False):
+    print(f"Downloading {title}-{chapter}")
     print("Downloading AnimeFLV.net webpage")
     html = requests.get(f"https://www3.animeflv.net/ver/{title}-{chapter}").text
 
