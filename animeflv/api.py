@@ -42,8 +42,16 @@ def find_details(anime_id:str):
     return total_chapters, description
 
 
-def download_one(title: str, chapter: int, output_path: str, return_url:bool=False):
+def download_one(title: str, chapter: int, output_path: str, return_url:bool=False, override:bool = False):
     print(f"Downloading {title}-{chapter}")
+
+    path = Path(output_path) / f"{title}-{chapter}.mp4"
+
+    if path.exists():
+        if not override:
+            print("(!) Refusing to override. Pass override=True (--override in the CLI) to force.")
+            return
+
     print("Downloading AnimeFLV.net webpage")
     html = requests.get(f"https://www3.animeflv.net/ver/{title}-{chapter}").text
 
@@ -95,10 +103,7 @@ def download_one(title: str, chapter: int, output_path: str, return_url:bool=Fal
     
     stream = requests.get(video_url, stream=True)
     total_size = int(stream.headers.get('content-length', 0))
-    path = Path(output_path) / f"{title}-{chapter}.mp4"
-
-    if path.exists():
-        print(f"(!) Overwriting {path}")
+    print(f"(!) Overwriting {path}")
 
     try:
         with path.open("wb") as f:
