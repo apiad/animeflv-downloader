@@ -7,7 +7,7 @@ It also works as Telegram Bot!
 
 > **DISCLAIMER:** This project is for personal and legitimate use ONLY. It is not designed for commercial use. 
 > I do not endorse blatanly downloading copyrighted material from anywhere in the Internet.
-> That being said, if you are from a Third World country where this content is simply not available, you only have intermiten Internet connection, and the content is only for personal consumption, that can be considered that a legitimate use.
+> That being said, if you are from a Third World country where this content is simply not available, you only have an intermitent or unreliable Internet connection, and the content is only for your personal consumption, that can be considered that a legitimate use.
 >
 > Please support <AnimeFLV.net> in any way you can. Specially, do visit the website and what the chapters through streaming if you can afford it. They make an awesome job and they deserve your support.
 
