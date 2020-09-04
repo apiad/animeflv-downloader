@@ -103,7 +103,9 @@ def download_one(title: str, chapter: int, output_path: str, return_url:bool=Fal
     
     stream = requests.get(video_url, stream=True)
     total_size = int(stream.headers.get('content-length', 0))
-    print(f"(!) Overwriting {path}")
+    
+    if path.exists():
+        print(f"(!) Overwriting {path}")
 
     try:
         with path.open("wb") as f:
