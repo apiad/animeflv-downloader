@@ -2,24 +2,24 @@
 
 > Check the bot at https://t.me/animeflv_download_bot
 
-This script is very simple, it will attempt to download video files from <AnimeFLV.net>.
+This script is very simple, it will attempt to download video files from [AnimeFLV.net](https://animeflv.net).
 It also works as Telegram Bot!
 
 > **DISCLAIMER:** This project is for personal and legitimate use ONLY. It is not designed for commercial use. 
 > I do not endorse blatanly downloading copyrighted material from anywhere in the Internet.
-> That being said, if you are from a Third World country where this content is simply not available, you only have intermiten Internet connection, and the content is only for personal consumption, that can be considered that a legitimate use.
+> That being said, if you are from a Third World country where this content is simply not available, you only have an intermitent or unreliable Internet connection, and the content is only for your personal consumption, that can be considered that a legitimate use.
 >
-> Please support <AnimeFLV.net> in any way you can. Specially, do visit the website and what the chapters through streaming if you can afford it. They make an awesome job and they deserve your support.
+> Please support [AnimeFLV.net](https://animeflv.net) in any way you can. Specially, do visit the website and what the chapters through streaming if you can afford it. They make an awesome job and they deserve your support.
 
 ### Install
 
-Just run:
+Just clone, cd to the root of the project, optionally create a virtualenv, and then run:
 
     pip install -r requirements.txt
 
 ### Usage
 
-Pass the title of an anime series as it appears in the <animeflv.net> URL. For example, for <https://www3.animeflv.net/anime/shingeki-no-kyojin> the title is `shingeki-no-kyojin`, and optionally the initial and final episode:
+Pass the title of an anime series as it appears in the URL. For example, for <https://www3.animeflv.net/anime/shingeki-no-kyojin> the title is `shingeki-no-kyojin`, and optionally the initial and final episode:
 
     python -m animeflv download shingeki-no-kyojin 1 25 [--output_path <path>]
 
