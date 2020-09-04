@@ -13,7 +13,7 @@ It also works as Telegram Bot!
 
 ### Install
 
-Just run:
+Just clone, cd to the root of the project, optionally create a virtualenv, and then run:
 
     pip install -r requirements.txt
 
